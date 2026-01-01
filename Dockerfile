@@ -42,7 +42,7 @@ RUN mkdir -p /opt/bin \
 # 安装 Node.js 依赖（优化层缓存）
 WORKDIR ${APP_DIR}
 COPY package*.json ./
-RUN npm ci --omit=dev --cache /tmp/.npm \
+RUN npm install --omit=dev --no-audit --no-fund --cache /tmp/.npm \
     && rm -rf /tmp/.npm
 
 # 复制源代码
